@@ -32,6 +32,12 @@ async function run() {
             const result = await allFoodscoll.insertOne(data)
             res.send(result)         
  })
+        app.get('/limit', async (req, res) => {
+     
+            const result = await allFoodscoll.find().limit(4).toArray()
+            
+            res.send(result)         
+ })
         app.get('/foods', async (req, res) => {
      
             const result = await allFoodscoll.find().toArray()
